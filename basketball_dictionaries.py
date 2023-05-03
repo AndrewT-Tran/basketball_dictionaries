@@ -57,6 +57,13 @@ class Player():
     def __repr__(self):
         # this will tell python to print in the format we want
         return f"Name: {self.name}\nAge: {self.age}\nPosition: {self.position}\nTeam: {self.team}\n"
+    @classmethod
+    def get_team(cls, playas_list):
+        for player_dict in playas_list:
+            player = cls(player_dict)
+            player.display_player()
+            # we are adding an object(player) to the list
+        return cls
 
 # Challenge 2: Create instances using individual player dictionaries.
 
@@ -109,3 +116,8 @@ for player_dict in players:
     # we are adding an object(player) to the list
 
 print(new_team)  # we expect to print a list of players in the format we did above
+
+# Ninja Bonus: Add an @class method called get_team(cls, team_list) that, given a list of dictionaries populates and returns a new list of Player objects.
+print("++++++++++++Ninja Bonus++++++++++++")
+Player.get_team(players)
+# here we are calling the class method get_team and passing in the list of dictionaries in this case players
